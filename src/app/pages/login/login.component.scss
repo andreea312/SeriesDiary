@@ -1,0 +1,17 @@
+.signup-redirect {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #734877;
+  font-weight: bold;
+  text-align: center;
+
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #a77ab1;
+  }
+}

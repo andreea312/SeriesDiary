@@ -1,0 +1,128 @@
+.series-details-page {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4a4a4a;
+
+  .series-main-info {
+    display: flex;
+    gap: 30px;
+
+    .poster {
+      flex-shrink: 0;
+      width: 250px;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .series-text {
+      flex-grow: 1;
+
+      h2, h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #9f6ba4;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .rating-form {
+    margin-top: 30px;
+
+    h3 {
+      color: #9f6ba4;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #4a4a4a;
+    }
+
+    input[type='number'],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    textarea {
+      height: 80px;
+    }
+
+    button {
+      padding: 10px 22px;
+      background-color: #9f6ba4;
+      border: none;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #b789bb;
+      }
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .reviews-section {
+    margin-top: 40px;
+
+    h3 {
+      color: #9f6ba4;
+      margin-bottom: 10px;
+    }
+
+    .review {
+      background: #f9f9f9;
+      padding: 14px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+
+      p {
+        margin: 6px 0;
+      }
+
+      strong {
+        color: #5a2a72;
+      }
+
+      i {
+        font-size: 0.85rem;
+        color: #888;
+      }
+
+      hr {
+        margin-top: 12px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+}

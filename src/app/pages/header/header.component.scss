@@ -1,0 +1,63 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background-color: #9f6ba4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f9f9f9;
+    cursor: pointer;
+  }
+
+  input[type="text"] {
+    flex: 1;
+    max-width: 300px;
+    margin: 0 20px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    background-color: #fdfdfd;
+    transition: border 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #9f6ba4;
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      background-color: #9f6ba4;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #8a5496;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<div class="auth-container">
+  <div class="header">
+    <div class="logo">SeriesDiary</div>
+    <div class="desc">Your cozy corner for reviewing and keeping track of your favorite shows</div>
+  </div>
+
+  <div class="auth-box">
+    <input
+      type="email" 
+      placeholder="Email *" 
+      #emailId="ngModel"
+      required
+      name = "emailId"
+      [(ngModel)]="loginObj.emailId" 
+      [class.input-error]="loginAttempted && emailId.invalid"
+      class="form-control" 
+    />
+
+    <div class="password-field">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password *"
+        #password="ngModel"
+        required
+        name = "password"
+        [(ngModel)]="loginObj.password"
+        [class.input-error]="loginAttempted && password.invalid"
+        class="form-control"
+      />
+
+      <button
+        type="button"
+        class="toggle-password"
+        (click)="togglePassword()"
+        aria-label="Toggle password visibility">
+        {{ showPassword ? 'Hide' : 'Show' }}
+      </button>
+    </div>
+
+    <div class="error" *ngIf="errorMsg">{{ errorMsg }}</div>
+
+    <div class="button-container">
+      <button (click)="onLogin()">Login</button>
+      <div class="signup-redirect">
+        No account? <a (click)="goToSignup()">Sign up now</a>
+      </div>
+    </div>
+  </div>
+</div>

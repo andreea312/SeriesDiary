@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="series-details-page" *ngIf="series">
+  <div class="series-main-info">
+    <img *ngIf="series.poster_img_url" [src]="series.poster_img_url" alt="{{ series.name }}" class="poster" />
+
+    <div class="series-text">
+      <h2>{{ series.name }}</h2>
+      <p><strong>Genres:</strong> {{ series.genres }}</p>
+      <p><strong>Episodes:</strong> {{ series.number_of_episodes }} ({{ series.number_of_seasons }} season(s))</p>
+      <p><strong>Airing date:</strong> {{ series.airing_date }}</p>
+      <p><strong>Synopsis:</strong> {{ series.synopsis }}</p>
+      <p><strong>Keywords:</strong> {{ series.keywords }}</p>
+      <p><strong>Cast:</strong> {{ series.cast }}</p>
+    </div>
+  </div>
+
+  <div class="rating-form">
+    <div *ngIf="series.rating_count > 0">
+        <h3>Average Rating: {{ series.average_rating }}/10 ({{ series.rating_count }} rating(s))</h3>
+    </div>
+    <label>
+      Rating (0–10):
+      <input type="number" [(ngModel)]="userRating" min="0" max="10" />
+    </label>
+    <br />
+    <label>
+      Comment:
+      <textarea [(ngModel)]="userComment"></textarea>
+    </label>
+    <br />
+    <button (click)="submitRating()" [disabled]="!isFormValid()">Submit Review</button>
+  </div>
+
+  <div class="reviews-section" *ngIf="reviews.length > 0">
+    <h3>User Reviews</h3>
+    <div class="review" *ngFor="let r of reviews">
+      <p><strong>{{ r.user }}</strong> - {{ r.rating }}/10</p>
+      <p>{{ r.comment }}</p>
+      <p><i>{{ r.date | date:'short' }}</i></p>
+      <hr />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<app-header (searchChanged)="filterSeries($event)"></app-header>
+
+<div class="main-container">
+  <div class="series-list">
+    <div 
+      class="series-card" 
+      *ngFor="let item of filteredSeries"
+      [routerLink]="['/series', item.tmdb_id]"
+    >
+      <img *ngIf="item.poster_img_url" [src]="item.poster_img_url" alt="{{ item.name }}" class="poster" />
+      <div class="card-details">
+        <div class="basic-text">{{ item.name }}</div>
+        <div class="rating-text">Rating: {{ item.average_rating }}/10</div>
+        <div class="basic-text">{{ item.year }}</div>
+        <div class="basic-text">{{ item.genres }}</div>
+        <div class="basic-text">Episodes: {{ item.number_of_episodes }}</div>
+        <div class="plot-text">{{ item.synopsis | slice: 0:100 }}...</div>
+      </div>
+
+      <button
+        class="favorite-btn"
+        (click)="toggleFavorite(item.tmdb_id); $event.stopPropagation();"
+        [ngClass]="{ 'favorite': isFavorite(item.tmdb_id) }"
+      >
+        {{ isFavorite(item.tmdb_id) ? '★' : '☆' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+

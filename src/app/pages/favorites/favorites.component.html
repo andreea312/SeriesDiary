@@ -1,0 +1,22 @@
+<app-header (searchChanged)="filterFavorites($event)"></app-header>
+
+<div class="main-container" *ngIf="filteredFavorites.length > 0; else noFavorites">
+  <div class="series-list">
+    <div class="series-card" *ngFor="let item of filteredFavorites">
+      <div class="clickable-area" [routerLink]="['/series', item.tmdb_id]">
+        <img *ngIf="item.poster_img_url" [src]="item.poster_img_url" alt="{{ item.name }}" class="poster" />
+        <div class="card-details">
+          <div class="basic-text">{{ item.name }}</div>
+          <div class="rating-text">Rating: {{ item.average_rating }}/10</div>
+          <div class="basic-text">{{ item.genres }}</div>
+          <div class="basic-text">Episodes: {{ item.number_of_episodes }}</div>
+        </div>
+      </div>
+      <button class="remove-btn" (click)="removeFavorite(item.tmdb_id); $event.stopPropagation()">Remove</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #noFavorites>
+  <p>No favorites...</p>
+</ng-template>

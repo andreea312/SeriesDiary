@@ -1,0 +1,56 @@
+<div class="auth-container">
+  <div class="header">
+    <div class="logo">SeriesDiary</div>
+    <div class="desc">Your cozy corner for reviewing and keeping track of your favorite shows</div>
+  </div>
+
+  <div class="auth-box">
+    <input 
+      type="text" 
+      placeholder="Full Name *"
+      #fullName="ngModel"
+      required 
+      name = "fullName"
+      [(ngModel)]="signupObj.fullName"
+      [class.input-error]="signupAttempted && fullName.invalid"
+      class="form-control"
+    />
+
+    <input
+      type="email" 
+      placeholder="Email *" 
+      #emailId="ngModel"
+      required
+      name = "emailId"
+      [(ngModel)]="signupObj.emailId" 
+      [class.input-error]="signupAttempted && emailId.invalid"
+      class="form-control" 
+    />
+
+    <div class="password-field">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password *"
+        #password="ngModel"
+        required
+        name = "password"
+        [(ngModel)]="signupObj.password"
+        [class.input-error]="signupAttempted && password.invalid"
+        class="form-control"
+      />
+
+      <button
+        type="button"
+        class="toggle-password"
+        (click)="togglePassword()">
+        {{ showPassword ? 'Hide' : 'Show' }}
+      </button>
+    </div>
+
+    <div class="error" *ngIf="errorMsg">{{ errorMsg }}</div>
+
+    <div class="button-container">
+      <button (click)="onSignup()">Sign Up</button>
+    </div>
+  </div>
+</div>

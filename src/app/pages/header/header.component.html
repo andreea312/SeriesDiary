@@ -1,0 +1,13 @@
+<div class="header-container">
+  <div class="logo" (click)="goToHome()">SeriesDiary</div>
+  <div class="menu" *ngIf="currentUser">
+    <span>Hello, {{ currentUser.fullName }}</span>
+    <input
+        type="text"
+        placeholder="Search series..."
+        (input)="onSearchChange($event)"
+    />
+    <button class="btn" (click)="goToFavorites()">Favorites</button>
+    <button class="btn" (click)="logout()">Logout</button>
+  </div>
+</div>
