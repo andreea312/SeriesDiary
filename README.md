@@ -22,3 +22,5 @@ want, through reviews.
 - **Services:**
   - Authentication: `auth.service.ts`
   - Series Management: `series.service.ts`
+
+## For more details see Documentation.pdf
